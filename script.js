@@ -19,7 +19,7 @@ function checkGuess() {
   const guessValue = parseInt(guessInput.value);
   const resultContainer = document.getElementById("resultContainer");
 
-  // Validation: ตรวจสอบว่าใส่ตัวเลขหรือไม่
+  // validation: ตรวจสอบว่ากรอกตัวเลขหรือไม่
   if (isNaN(guessValue) || guessInput.value === "") {
     resultContainer.innerHTML = `
       <div class="alert alert-danger" role="alert">
@@ -29,7 +29,7 @@ function checkGuess() {
     return;
   }
 
-  // Validation: ตรวจสอบว่าอยู่ในช่วง 1-100 หรือไม่
+  // validation: ตรวจสอบช่วง 1-100
   if (guessValue < 1 || guessValue > 100) {
     resultContainer.innerHTML = `
       <div class="alert alert-danger" role="alert">
@@ -39,7 +39,7 @@ function checkGuess() {
     return;
   }
 
-  attemptCount++;
+  attemptCount++; // เพิ่มตรงนี้
 
   if (guessValue === secretNumber) {
     resultContainer.innerHTML = `
@@ -67,13 +67,13 @@ function checkGuess() {
   guessInput.focus();
 }
 
-// ฟังก์ชันอัปเดตจำนวนครั้งที่ทาย
+// ฟังก์ชันอัปเดตจำนวนครั้ง
 function updateDisplay() {
   const attemptsContainer = document.getElementById("attemptsContainer");
   attemptsContainer.textContent = `ทายแล้ว: ${attemptCount} ครั้ง`;
 }
 
-// ฟังก์ชันเริ่มเกมใหม่ (รีเซ็ตเกม)
+// ฟังก์ชันเริ่มเกมใหม่
 function resetGame() {
   initializeGame();
   document.getElementById("resultContainer").innerHTML = "";
